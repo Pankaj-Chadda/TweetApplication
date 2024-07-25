@@ -1,4 +1,3 @@
-
 {
     "builds": [{
         "src": "tweetApp/wsgi.py",
@@ -6,6 +5,10 @@
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9.6" }
     }],
     "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
         {
             "src": "/(.*)",
             "dest": "tweetApp/wsgi.py"
